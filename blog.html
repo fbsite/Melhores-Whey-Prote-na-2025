@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- ====================== META TAGS & SEO (BLOG) ====================== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dicas de treino, reviews de acessórios de academia e guias para hipertrofia. O blog definitivo para marombeiros.">
+    <meta name="keywords" content="blog academia, blog maromba, acessórios de academia, review luva academia, cinto de agachamento, strap, joelheira">
+    <meta name="author" content="Carlos Mendes">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Social SEO (BLOG) -->
+    <meta property="og:title" content="Blog: Dicas de Treino e Acessórios de Academia">
+    <meta property="og:description" content="Reviews de cintos, straps, joelheiras e mais. Saiba o que realmente funciona.">
+    <meta property="og:image" content="https://seusite.com/imagens/og-blog.jpg"> <!-- Imagem genérica de blog/academia -->
+    <meta property="og:url" content="https://seusite.com/blog.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card (BLOG) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blog: Dicas de Treino e Acessórios de Academia">
+    <meta name="twitter:description" content="Reviews de cintos, straps, joelheiras e mais.">
+    <meta name="twitter:image" content="https://seusite.com/imagens/og-blog.jpg">
+
+    <!-- Canonical (BLOG) -->
+    <link rel="canonical" href="https://seusite.com/blog.html">
+
+    <!-- Título (BLOG) -->
+    <title>📝 Blog: Dicas de Treino e Acessórios de Academia</title>
+
+    <!-- ====================== FONTES & ESTILOS ====================== -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #e63946;
+            --dark: #1d3557;
+            --light: #f1faee;
+            --gray: #457b9d;
+            --success: #2a9d8f;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Inter', sans-serif; background:#fafafa; color:#333; line-height:1.6; }
+        .container { max-width:1200px; margin:auto; padding:0 15px; }
+        header { background:var(--dark); color:white; padding:1rem 0; text-align:center; }
+        header h1 { font-size:1.8rem; font-weight:900; }
+        
+        /* ====================== NAV RESPONSIVA (JS) ====================== */
+        nav { background:var(--primary); padding: 1rem 0; position:sticky; top:0; z-index:100; }
+        .nav-container {
+            display: flex;
+            justify-content: center; /* Centraliza no desktop */
+            align-items: center;
+            position: relative;
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 15px;
+        }
+        .nav-links { display:flex; justify-content:center; gap:2rem; list-style:none; margin: 0; padding: 0; transition: all 0.3s ease-in-out; }
+        nav a { color:white; text-decoration:none; font-weight:600; transition:0.3s; }
+        nav a:hover { color:var(--light); }
+        
+        /* Hamburger Menu */
+        .menu-hamburger { display: none; /* Oculto no desktop */
+            background: none;
+            border: none;
+            cursor: pointer;
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 101;
+            padding: 5px;
+        }
+        .hamburger-line {
+            display: block;
+            width: 30px;
+            height: 3px;
+            background: white;
+            border-radius: 3px;
+            margin: 6px 0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* ================== ESTILOS GERAIS ================== */
+        .hero { background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1571019613441-eac88b8a514e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80'); background-size:cover; background-position: center; color:white; text-align:center; padding:4rem 1rem; }
+        .hero h1 { font-size:2.5rem; margin-bottom:1rem; }
+        .hero p { font-size:1.2rem; max-width:800px; margin:0 auto 2rem; }
+        .btn { display:inline-block; background:var(--primary); color:white; padding:1rem 2rem; border-radius:50px; text-decoration:none; font-weight:700; transition:0.3s; box-shadow:0 4px 15px rgba(230,57,70,0.3); }
+        .btn:hover { transform:translateY(-3px); box-shadow:0 6px 20px rgba(230,57,70,0.4); }
+        .badge { background:var(--success); color:white; padding:0.3rem 0.8rem; border-radius:50px; font-size:0.8rem; font-weight:700; margin-left:0.5rem; }
+        
+        /* Grid de Artigos */
+        .post-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:2rem; margin:3rem 0; }
+        .card { background:white; border-radius:15px; overflow:hidden; box-shadow:0 5px 20px rgba(0,0,0,0.1); transition:0.3s; display: flex; flex-direction: column; }
+        .card:hover { transform:translateY(-10px); box-shadow:0 15px 30px rgba(0,0,0,0.15); }
+        .card-img { height:200px; object-fit:cover; width:100%; background-color: #eee; }
+        .card-body { padding:1.5rem; flex-grow: 1; display: flex; flex-direction: column; }
+        .card h3 { 
+            font-size: 1.4rem; 
+            margin-bottom: 0.5rem; 
+            color: var(--dark);
+        }
+        .card-body .excerpt { font-size: 0.9rem; color: #555; margin-bottom: 1.5rem; flex-grow: 1; }
+        .card-body .post-meta { font-size: 0.8rem; color: #777; margin-bottom: 1rem; }
+        .btn-leia-mais { background: var(--dark); margin-top: auto; }
+        .btn-leia-mais:hover { background: var(--primary); }
+        
+        footer { background:var(--dark); color:white; text-align:center; padding:2rem 0; margin-top:3rem; }
+        .cookie-banner { position:fixed; bottom:0; left:0; right:0; background:rgba(29,53,87,0.95); color:white; padding:1rem; text-align:center; z-index:999; display:none; }
+        .cookie-banner.show { display:block; }
+        .cookie-btn { background:var(--success); border:none; color:white; padding:0.5rem 1rem; margin-left:1rem; border-radius:5px; cursor:pointer; }
+        
+        /* ================== ESPAÇO DE ANÚNCIO ================== */
+        .ad-placeholder {
+            width: 100%;
+            min-height: 90px;
+            background: #f0f0f0;
+            border: 2px dashed var(--gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: var(--gray);
+            margin: 2rem auto;
+            text-align: center;
+            padding: 1rem;
+        }
+        /* Anúncio para a grelha do blog */
+        .post-grid .ad-placeholder-card {
+            background: #f0f0f0;
+            border: 2px dashed var(--gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: var(--gray);
+            text-align: center;
+            border-radius: 15px;
+            padding: 1rem;
+            min-height: 200px;
+        }
+        
+        /* ================== MEDIA QUERY RESPONSIVA ================== */
+        @media (max-width:768px) {
+            .hero h1 { font-size:2rem; }
+            
+            /* Nav Responsiva */
+            .menu-hamburger {
+                display: block; /* Mostra o hamburger no mobile */
+            }
+            .nav-container {
+                justify-content: flex-end; /* Alinha hamburger à direita */
+            }
+            .nav-links {
+                display: none; /* Esconde a lista de links */
+                position: absolute;
+                top: 100%; /* Começa abaixo do nav */
+                right: 0;
+                background: var(--primary);
+                width: 100%;
+                flex-direction: column;
+                text-align: center;
+                gap: 0;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            }
+            .nav-links.active {
+                display: flex; /* Mostra o menu quando .active está presente */
+            }
+            .nav-links li {
+                width: 100%;
+            }
+            .nav-links a {
+                display: block;
+                padding: 1.2rem;
+                border-top: 1px solid rgba(255,255,255,0.1);
+            }
+            .nav-links a:hover {
+                background: var(--dark);
+            }
+
+            /* Animação do Hamburger para "X" */
+            .menu-hamburger.active .hamburger-line:nth-child(1) {
+                transform: rotate(45deg) translate(7px, 7px);
+            }
+            .menu-hamburger.active .hamburger-line:nth-child(2) {
+                opacity: 0;
+            }
+            .menu-hamburger.active .hamburger-line:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -7px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ====================== COOKIES LGPD ====================== -->
+    <div id="cookieBanner" class="cookie-banner">
+        <p>🍪 Usamos cookies para melhorar sua experiência e exibir anúncios personalizados. Ao continuar, você aceita nossa <a href="/politica-privacidade" style="color:#a8dadc;">Política de Privacidade</a>.</p>
+        <button class="cookie-btn" onclick="acceptCookies()">Aceitar</button>
+    </div>
+
+    <!-- ====================== HEADER ====================== -->
+    <header>
+        <div class="container">
+            <h1>💪 Suplementos que Entregam Resultado</h1>
+        </div>
+    </header>
+
+    <!-- ====================== NAVEGAÇÃO (Responsiva) ====================== -->
+    <nav>
+        <div class="nav-container">
+            <button id="menu-toggle-btn" class="menu-hamburger">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <ul id="nav-links-list" class="nav-links">
+                <li><a href="top-creatina.html">🏆 Top Creatina</a></li>
+                <li><a href="top-whey.html">🥤 Top Whey Protein</a></li>
+                <li><a href="blog.html">📝 Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ====================== HERO (BLOG) ====================== -->
+    <section class="hero">
+        <div class="container">
+            <h1>📝 Blog: Dicas e Reviews de Acessórios</h1>
+            <p>Do cinto de agachamento ao strap: descubra quais acessórios de academia realmente valem o seu dinheiro e vão potencializar seu treino.</p>
+            <a href="#artigos" class="btn">VER ÚLTIMOS POSTS <i class="fas fa-arrow-down"></i></a>
+        </div>
+    </section>
+
+    <!-- ====================== LISTA DE ARTIGOS ====================== -->
+    <section id="artigos" class="container">
+        <h2 style="text-align:center; margin:2rem 0; font-size:2rem;">Últimos Artigos</h2>
+        
+        <!-- ====================== ESPAÇO DE ANÚNCIO (NOVO) ====================== -->
+        <div class="ad-placeholder">ESPAÇO PARA ANÚNCIO (728x90)</div>
+
+        <div class="post-grid">
+
+            <!-- Artigo 1 -->
+            <div class="card">
+                <img src="https://placehold.co/600x400/1d3557/f1faee?text=Cinto+Agachamento" alt="Review Cinto de Agachamento" class="card-img" onerror="this.src='https://placehold.co/600x400/dddddd/aaaaaa?text=Cinto+Agachamento';">
+                <div class="card-body">
+                    <div class="post-meta">15 DE NOVEMBRO, 2025 • ACESSÓRIOS</div>
+                    <h3>Cinto de Agachamento: Você REALMENTE Precisa de Um?</h3>
+                    <p class="excerpt">O cinto é essencial para proteger a lombar em cargas altas, mas usá-lo o tempo todo pode enfraquecer seu core. Entenda quando e como usar.</p>
+                    <a href="artigo-cinto.html" class="btn btn-leia-mais" style="margin-top:1rem; width:100%; text-align:center;">
+                        LEIA MAIS
+                    </a>
+                </div>
+            </div>
+
+            <!-- Artigo 2 -->
+            <div class="card">
+                <img src="https://placehold.co/600x400/e63946/f1faee?text=Straps+vs+Luvas" alt="Straps vs Luvas" class="card-img" onerror="this.src='https://placehold.co/600x400/dddddd/aaaaaa?text=Straps+vs+Luvas';">
+                <div class="card-body">
+                    <div class="post-meta">14 DE NOVEMBRO, 2025 • ACESSÓRIOS</div>
+                    <h3>Straps vs. Luvas: A Batalha pela Pegada Perfeita</h3>
+                    <p class="excerpt">Sua pegada falha antes do músculo? Luvas protegem as mãos, mas straps aumentam sua capacidade de carga no terra. Veja qual o melhor para você.</p>
+                    <a href="artigo-straps.html" class="btn btn-leia-mais" style="margin-top:1rem; width:100%; text-align:center;">
+                        LEIA MAIS
+                    </a>
+                </div>
+            </div>
+
+            <!-- Artigo 3 -->
+            <div class="card">
+                <img src="https://placehold.co/600x400/457b9d/f1faee?text=Tênis+Leg+Day" alt="Melhor tênis para leg day" class="card-img" onerror="this.src='https://placehold.co/600x400/dddddd/aaaaaa?text=Tênis+Leg+Day';">
+                <div class="card-body">
+                    <div class="post-meta">12 DE NOVEMBRO, 2025 • REVIEW</div>
+                    <h3>O Tênis Ideal para Leg Day (Não, não é o seu tênis de corrida)</h3>
+                    <p class="excerpt">Treinar perna com tênis de corrida pode te lesionar. Você precisa de um solado reto e firme. Analisamos 3 modelos ideais para agachar.</p>
+                    <a href="artigo-tenis.html" class="btn btn-leia-mais" style="margin-top:1rem; width:100%; text-align:center;">
+                        LEIA MAIS
+                    </a>
+                </div>
+            </div>
+
+            <!-- ====================== ESPAÇO DE ANÚNCIO (NOVO) ====================== -->
+            <div class="ad-placeholder-card">
+                ESPAÇO PARA ANÚNCIO (300x250)
+            </div>
+
+            <!-- Artigo 4 -->
+            <div class="card">
+                <img src="https://placehold.co/600x400/2a9d8f/f1faee?text=Joelheira" alt="Review Joelheira de Compressão" class="card-img" onerror="this.src='https://placehold.co/600x400/dddddd/aaaaaa?text=Joelheira';">
+                <div class="card-body">
+                    <div class="post-meta">10 DE NOVEMBRO, 2025 • ACESSÓRIOS</div>
+                    <h3>Joelheira de Compressão vs. Faixa: Qual Usar?</h3>
+                    <p class="excerpt">Sente dores no joelho ao agachar? A joelheira de compressão (sleeve) aquece, enquanto a faixa (wrap) dá suporte extremo. Não confunda as duas.</p>
+                    <a href="artigo-joelheira.html" class="btn btn-leia-mais" style="margin-top:1rem; width:100%; text-align:center;">
+                        LEIA MAIS
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Artigo 5 -->
+            <div class="card">
+                <img src="https://placehold.co/600x400/f4a261/1d3557?text=Munhequeira" alt="Review Munhequeira" class="card-img" onerror="this.src='https://placehold.co/600x400/dddddd/aaaaaa?text=Munhequeira';">
+                <div class="card-body">
+                    <div class="post-meta">08 DE NOVEMBRO, 2025 • REVIEW</div>
+                    <h3>Review: Munhequeira para Supino. Vale a Pena?</h3>
+                    <p class="excerpt">Seu pulso "dobra" no supino ou desenvolvimento? Testamos 3 marcas de munhequeira que prometem estabilidade e mais força no movimento.</p>
+                    <a href="artigo-munhequeira.html" class="btn btn-leia-mais" style="margin-top:1rem; width:100%; text-align:center;">
+                        LEIA MAIS
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Artigo 6 -->
+            <div class="card">
+                <img src="https://placehold.co/600x400/1d3557/f1faee?text=Corda+de+Pular" alt="Corda de Pular para Cardio" class="card-img" onerror="this.src='https://placehold.co/600x400/dddddd/aaaaaa?text=Corda+de+Pular';">
+                <div class="card-body">
+                    <div class="post-meta">05 DE NOVEMBRO, 2025 • CARDIO</div>
+                    <h3>Acessório Subestimado: Como Perder Peso com Corda de Pular</h3>
+                    <p class="excerpt">Procurando um cardio eficiente e barato? 10 minutos de corda podem equivaler a 30 de corrida. Veja como começar e qual corda comprar.</p>
+                    <a href="artigo-corda.html" class="btn btn-leia-mais" style="margin-top:1rem; width:100%; text-align:center;">
+                        LEIA MAIS
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    
+    <!-- ====================== ESPAÇO DE ANÚNCIO (NOVO) ====================== -->
+    <div class="container">
+        <div class="ad-placeholder">ESPAÇO PARA ANÚNCIO (728x90)</div>
+    </div>
+
+    <!-- ====================== FOOTER ====================== -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Suplementos que Entregam. Todos os direitos reservados.</p>
+            <p><a href="/politica-privacidade" style="color:#a8dadc;">Política de Privacidade</a> | <a href="/termos" style="color:#a8dadc;">Termos de Uso</a></p>
+            <!-- Texto de afiliado removido -->
+        </div>
+    </footer>
+
+    <!-- ====================== SCRIPT COOKIES LGPD ====================== -->
+    <script>
+        function acceptCookies() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            document.getElementById('cookieBanner').classList.remove('show');
+        }
+        
+        // Script do Menu Hamburger
+        function setupMenu() {
+            const menuBtn = document.getElementById('menu-toggle-btn');
+            const navLinks = document.getElementById('nav-links-list');
+            if (menuBtn && navLinks) {
+                menuBtn.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    menuBtn.classList.toggle('active');
+                });
+            }
+        }
+
+        window.onload = function() {
+            if (!localStorage.getItem('cookiesAccepted')) {
+                setTimeout(() => {
+                    document.getElementById('cookieBanner').classList.add('show');
+                }, 2000);
+            }
+            
+            // Configura o menu
+            setupMenu();
+
+            // Adiciona fallback para imagens quebradas
+            document.querySelectorAll('.card-img').forEach(img => {
+                img.onerror = function() {
+                    const altText = this.alt || 'Imagem do Post';
+                    this.src = `https://placehold.co/600x400/dddddd/aaaaaa?text=${encodeURIComponent(altText)}`;
+                };
+            });
+        }
+    </script>
+</body>
+</html>
